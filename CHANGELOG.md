@@ -1,3 +1,10 @@
+# [1.0.0-beta.3](https://github.com/zvone10/GASP/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2026-04-11)
+
+
+### Bug Fixes
+
+* **alphasort:** sorting network configurations ([86bf406](https://github.com/zvone10/GASP/commit/86bf40632c44a7142b9c402f75d92c3da218589c))
+
 # [1.0.0-beta.2](https://github.com/zvone10/GASP/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2026-04-11)
 
 
