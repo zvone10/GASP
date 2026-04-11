@@ -2,6 +2,7 @@ package alphasort
 
 import (
 	"cmp"
+	"fmt"
 )
 
 // applySortingNetwork applies a fixed sequence of compare-swaps for small N.
@@ -121,6 +122,8 @@ func OptimizedMergeSort[T cmp.Ordered](arr []T) []T {
 	left := OptimizedMergeSort(arr[:mid])
 	right := OptimizedMergeSort(arr[mid:])
 
+	fmt.Println(left, right)
+
 	return merge(left, right)
 }
 
@@ -130,14 +133,18 @@ func merge[T cmp.Ordered](left, right []T) []T {
 
 	for i < len(left) && j < len(right) {
 		if left[i] < right[j] {
+			fmt.Println("left")
 			result = append(result, left[i])
 			i++
 		} else {
+			fmt.Println("right")
 			result = append(result, right[j])
 			j++
 		}
+		fmt.Println(result)
 	}
 	result = append(result, left[i:]...)
 	result = append(result, right[j:]...)
+
 	return result
 }

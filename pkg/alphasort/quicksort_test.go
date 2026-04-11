@@ -1,11 +1,8 @@
 package alphasort
 
-import (
-	"math/rand"
-	"testing"
-)
+import "testing"
 
-func TestOptimizedMergeSort(t *testing.T) {
+func TestOptimizedQuickSort(t *testing.T) {
 	tests := []struct {
 		name string
 		arr  []int
@@ -20,7 +17,7 @@ func TestOptimizedMergeSort(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			sorted := OptimizedMergeSort(tt.arr)
+			sorted := OptimizedQuickSort(tt.arr)
 			for i := range tt.arr {
 				if sorted[i] != tt.want[i] {
 					t.Errorf("got %v, want %v", sorted, tt.want)
@@ -28,24 +25,5 @@ func TestOptimizedMergeSort(t *testing.T) {
 				}
 			}
 		})
-	}
-}
-
-func BenchmarkOptimizedMergeSort(b *testing.B) {
-	arrLen := 600000
-	arr := make([]int, arrLen)
-	for i := 0; i < arrLen; i++ {
-		arr[i] = rand.Intn(arrLen)
-	}
-
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		b.StopTimer()
-		// Create a copy to ensure each benchmark iteration sorts the same initial data
-		tempArr := make([]int, arrLen)
-		copy(tempArr, arr)
-
-		b.StartTimer()
-		OptimizedMergeSort(tempArr)
 	}
 }
